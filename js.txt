@@ -1,0 +1,133 @@
+function create() {
+
+    let first = document.getElementById('firstName');
+    let last = document.getElementById('lastName');
+    let emailId = document.getElementById('email');
+    let passwordEl = document.getElementById('password');
+
+    if (first.value == "") {
+        alert('Please fill your name');
+
+    } else if (last.value == "") {
+        alert('Please fill your name');
+
+    } else if (emailId.value == "") {
+        alert('Please fill your email');
+    } else if (passwordEl.value == "") {
+        alert('Please fill in password');
+    } else {
+        localStorage.setItem('firstname', first.value);
+        localStorage.setItem('lastname', last.value);
+        localStorage.setItem('email', emailId.value);
+        localStorage.setItem('password', passwordEl.value);
+        alert('Your account has been created');
+        first.value = "";
+        last.value = "";
+        emailId.value = "";
+        passwordEl.value = "";
+    }
+}
+
+let btnEl = document.getElementById("loginBtn");
+btnEl.onclick = function() {
+    let storedEmail = localStorage.getItem('email');
+    let storedPassword = localStorage.getItem('password');
+
+    let userEmailEl = document.getElementById('userEmail');
+    let userPasswordEl = document.getElementById('userPassword');
+
+    if (userEmailEl.value == storedEmail && userPasswordEl.value == storedPassword) {
+        window.location.href = "https://eventask.ccbp.tech";
+    } else {
+        alert('Error on login');
+    }
+};
+
+let formEl = document.getElementById("signupForm");
+let formEll = document.getElementById("loginForm");
+formEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+formEll.addEventListener("submit", function(event) {
+    event.preventDefault();
+});
+
+
+
+
+
+let events = [{
+    eventId: 1,
+    name: "Webinar",
+    descriptionn: "About 4.0 Tech",
+    hour: "12",
+    minute: "00",
+    time: "AM",
+    day: "Monday",
+}, ];
+
+let listEl = document.getElementById("listItemsContainer");
+let nameEl = document.getElementById("eventName");
+let descriptionEl = document.getElementById("eventDescription");
+let timeEl = document.getElementById("eventTime");
+let hourEl = document.getElementById("eventHour");
+let minuteEl = document.getElementById("eventMinute");
+let dayEl = document.getElementById("eventDay");
+let addBtnEl = document.getElementById("addBtn");
+
+let count = events.length;
+
+
+function createAndAppendEvent(site) {
+
+    let siteElement = document.createElement("li");
+    listEl.appendChild(siteElement);
+
+    let labelElement = document.createElement("label");
+    labelElement.setAttribute("for", eventName);
+    labelElement.classList.add("learning-heading");
+    labelElement.textContent = "EVENTNAME: " + site.name + " , ";
+    siteElement.appendChild(labelElement);
+
+    let labelEl = document.createElement("label");
+    labelEl.setAttribute("for", eventDescription);
+    labelEl.classList.add("learning-heading");
+    labelEl.textContent = "EVENTDESCRIPTION: " + site.descriptionn + " , ";
+    siteElement.appendChild(labelEl);
+
+    let labelhour = document.createElement("label");
+    labelhour.setAttribute("for", eventHour);
+    labelhour.classList.add("learning-heading");
+    labelhour.textContent = "EVENTTIME: " + site.hour + ":" + site.minute + site.time + " , ";
+    siteElement.appendChild(labelhour);
+
+    let labelElll = document.createElement("label");
+    labelElll.setAttribute("for", eventDay);
+    labelElll.classList.add("learning-heading");
+    labelElll.textContent = "EVENTDAY: " + site.day;
+    siteElement.appendChild(labelElll);
+
+}
+
+for (let site of events) {
+    createAndAppendEvent(site);
+}
+
+function onAddTodo() {
+    count = count + 1;
+
+    let newEvent = {
+        eventId: count,
+        name: nameEl.value,
+        descriptionn: descriptionEl.value,
+        hour: eventHour.value,
+        minute: eventMinute.value,
+        time: eventTime.value,
+        day: dayEl.value
+    };
+
+    createAndAppendEvent(newEvent);
+}
+addBtnEl.addEventListener("submit", function(event) {
+    onAddTodo();
+});

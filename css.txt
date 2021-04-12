@@ -1,0 +1,82 @@
+.card {
+    background-color: #808080;
+    margin: 50px;
+    border-radius: 8px;
+
+}
+
+.heading {
+    color: #000000;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.new {
+    color: black;
+    font-size: 15px;
+    font-family: "Roboto";
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+
+.button {
+    background: #2196F3;
+    width: 25%;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
+    border-style: none;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+.bg-container {
+    background-color: #f56f34;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.cardd {
+    border-radius: 10px;
+    background-color: black;
+    padding: 20px;
+}
+
+.option {
+    height: 40px;
+    border-radius: 3px;
+    width: 220px;
+}
+
+.schedule-list {
+    background-color: #f5f7fa;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+
+.learning-heading {
+    color: #222222;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.new {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+
+.logout {
+    color: blue;
+    text-align: right;
+    font-weight: bold;
+}
